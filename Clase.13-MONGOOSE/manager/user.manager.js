@@ -41,6 +41,9 @@ const actualizarUsuarioPorId = async (id, data) =>{
   //findByIdAndUpdate
   //Recibe el id, objetos de cambios y un objeto de configuraciones
   //Devuelve una promesa
+  //id: id del elemento a actualizar
+        //objeto de cambios: objeto con los cambios que queremos hacer en el documento
+        //opciones: objeto de opciones de la actualizacion: ej: {new: true} hace que el metodo retorne el objeto ya actualizado en vez del objeto previo a la actualizacion
   try{
 
     const updatedUser = await Usuario.findByIdAndUpdate(id, data, {new: true})
