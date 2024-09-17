@@ -1,0 +1,13 @@
+{
+  "name": "clase.06",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

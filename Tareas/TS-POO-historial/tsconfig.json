@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist", //La carpeta de salida de codigo JS compilado
+    "rootDir": "./src", //La carpeta de entrada de codigo (donde se tomara el codigo typescript)
+    //"module": "ES6", //Version de modulos (como se va a importar e exportar)
+    "module": "ES6",
+    /* "module": "NodeNext", // Se puedan interpretar automaticamente los imports como extensiones de .js
+    "moduleResolution": "NodeNext", //buena practica */
+    //"allowSyntheticDefaultImports": true, //permite importar por defecto
+    "target": "ES6" //Version en la que se compilara nuestro codigo
+  },
+  "include": ["src/**/*.ts"], //Que carpetas y archivos va a tomar para compilar
+  "exclude": ["node_modules"] //Excluyo la carpeta de node_modules, esta carpeta siempre se
+}
