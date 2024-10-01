@@ -1,0 +1,1 @@
+[ID: 2] [WARN] [index.js] [17/9/2024, 10:55:47] Hay un usuario con el mismo id

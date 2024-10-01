@@ -1,0 +1,1 @@
+export const levels = ['debug','info','warn','error']
