@@ -1,5 +1,5 @@
 import { leerJson } from "./jsonManager.utils.js"
-import { responseBuilder } from "./builders.utils.js"
+import { JSONerrorResponse, responseBuilder } from "./builders.utils.js"
 
 const CATEGORIES = ['ropa', 'electrodomestico', 'jugeteria']
 const PROPIETIES = ['title', 'price', 'category', 'stock', 'id']
@@ -77,42 +77,48 @@ class productManager{
 
 const productsValidations = async (product) =>{
   const invalidPROPIETIES = []
-  const productList = await leerJson()
   
-  const productObj = new productManager()
+  try{
+    const productList = await leerJson()
+    
+    const productObj = new productManager()
     .setTitle(product.title)
     .setPrice(product.price)
     .setCategory(product.category)
     .setStock(product.stock)
     .build()
-  
-  for(let prop in product){
-    if(!PROPIETIES.includes(prop)){
-      invalidPROPIETIES.push(prop)
-    }
-  }
-
-  for(let prod in productList){
-    if(product.title && productList[prod].title === product.title.toLowerCase()){
-      invalidPROPIETIES.push(' Ya existe un producto con el mismo nombre' )
-    }
-  }
-  
-  if(productObj.STATUS === 400 || invalidPROPIETIES.length > 0){
-    const response = new responseBuilder()
-    .setOk(false)
-    .setStatus(productObj.STATUS)
-    .setPayload({
-      message: `Propiedades invalidas:${invalidPROPIETIES},${productObj.ERROR}`
-    })
-    .build()
     
-    return response
+    for(let prop in product){
+      if(!PROPIETIES.includes(prop)){
+        invalidPROPIETIES.push(prop)
+      }
+    }
+    
+    for(let prod in productList){
+      if(product.title && productList[prod].title === product.title.toLowerCase()){
+        invalidPROPIETIES.push(' Ya existe un producto con el mismo nombre' )
+      }
+    }
+    
+    if(productObj.STATUS === 400 || invalidPROPIETIES.length > 0){
+      const response = new responseBuilder()
+      .setOk(false)
+      .setStatus(productObj.STATUS)
+      .setPayload({
+        message: `Propiedades invalidas:${invalidPROPIETIES},${productObj.ERROR}`
+      })
+      .build()
+      
+      return response
+    }
+    else{
+      return productObj
+    }
+    
   }
-  else{
-    return productObj
+  catch(error){
+    return JSONerrorResponse
   }
-
 }
-
-export { productsValidations }
+  
+  export { productsValidations }
