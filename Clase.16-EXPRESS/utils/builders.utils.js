@@ -1,22 +1,5 @@
 import {v4 as uuid} from 'uuid';
 
-/* Response{
-  ok: true,
-  status: 200,
-  payload: {
-    product: [Lista de productos]
-  }
-} 
-
-{
-    "title": "Product 1",
-    "price": 100,
-    "id": 1,
-    "category": "Category 1",
-    "stock": 10
-  }
-
-*/
 class responseBuilder {
   constructor(){
     this.response = {
@@ -48,9 +31,7 @@ class responseBuilder {
   }
 }
 
-
 class productBuilder {
-
   constructor(){
     this.response = {
       title: '',

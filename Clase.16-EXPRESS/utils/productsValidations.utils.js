@@ -7,7 +7,6 @@ const PROPIETIES = ['title', 'price', 'category', 'stock', 'id']
 const stringValidation = (text) => text && typeof(text) === 'string'
 const numberValidation = (num) =>  !isNaN(num) && num >= 0
 
-
 class productManager{
 
   constructor(){
@@ -76,7 +75,7 @@ class productManager{
   }
 }
 
-export const productsValidations = async (product) =>{
+const productsValidations = async (product) =>{
   const invalidPROPIETIES = []
   const productList = await leerJson()
   
@@ -115,3 +114,5 @@ export const productsValidations = async (product) =>{
   }
 
 }
+
+export { productsValidations }
