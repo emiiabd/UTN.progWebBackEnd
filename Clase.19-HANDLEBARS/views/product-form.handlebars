@@ -1,0 +1,35 @@
+<h2>Formularo de producto</h2>
+
+<form action="/products/new" method="POST">  
+  <div> 
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del producto..." onchange="validateInput()" value="{{this.data.form_state.product.nombre}}">
+    {{#if this.data.errors.nombre}}
+      <span>{{this.data.errors.nombre}}</span>
+    {{/if}}
+  </div>
+  <div> 
+    <label for="precio">Precio</label>
+    <input type="text" id="precio" name="precio" placeholder="Ingrese el precio del prodcto" onchange="validateInput()" value="{{this.data.form_state.product.precio}}">
+    {{#if this.data.errors.precio}}
+      <span>{{this.data.errors.precio}}</span>
+    {{/if}}
+  </div>
+  <div> 
+    <label for="descripcion">Descripcion</label>
+    <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripcion" onchange="validateInput()" value="{{this.data.form_state.product.descripcion}}"></textarea>
+    {{#if this.data.errors.descripcion}}
+      <span>{{this.data.errors.descripcion}}</span>
+    {{/if}}
+  </div>
+  <div> 
+    <label for="stock">stock</label>
+    <input type="text" id="stock" name="stock" placeholder="Ingrese el stock" onchange="validateInput()" value="{{this.data.form_state.product.stock}}">
+    {{#if this.data.errors.stock}}
+      <span>{{this.data.errors.stock}}</span>
+    {{/if}}
+  </div>
+  <input type="submit">
+</form>
+
+<script src="/js/form-validations.js"></script>

@@ -142,7 +142,7 @@ productRouter.put('/:pid', async (req, res) =>{
       }
     }
     else{
-      const shadowProduct = productsArray.filter((products) => String(products.id) !== String(pid))
+      const shadowProducts = productsArray.filter((products) => String(products.id) !== String(pid))
       const product = new productBuilder()
         .setTitle(newProductObj.title)
         .setPrice(newProductObj.price)
@@ -151,14 +151,14 @@ productRouter.put('/:pid', async (req, res) =>{
         .setId(pid)
         .build()
       
-      shadowProduct.push(product)
+      shadowProducts.push(product)
 
-      await crearJson(shadowProduct)
+      await crearJson(shadowProducts)
       
       const response = new responseBuilder()
         .setOk(true)
         .setStatus(200)
-        .setPayload(shadowProduct)
+        .setPayload(shadowProducts)
       
       res.json(response)
     }

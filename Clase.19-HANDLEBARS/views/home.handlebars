@@ -1,0 +1,24 @@
+
+{{!-- Podemos crear condiciones --}}
+{{#if this.ok}}
+
+  <h1 class="titulo">{{data.titulo}}</h1>
+  <h1>Hola desde el home handlebars</h1>
+  <span>La fecha de hoy es: {{this.data.fecha}}</span>
+  <span>El valor del dolar es: {{this.data.valorDolar}}</span>
+
+  {{#each this.data.productArr}}
+    <h3>{{this.id}} - {{this.nombre}}</h3>
+    <span>{{this.precio}}</span>
+    <a href="./products/{{this.id}}">Ver detalles</a>
+    <hr/>
+  {{/each}}
+
+  {{#each this.data.productArr}}
+    <p>Hola</p>
+  {{/each}}
+
+  {{else}}
+  <h1>Error {{this.data.detail}}</h1>
+
+{{/if}}

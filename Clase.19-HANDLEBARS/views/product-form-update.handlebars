@@ -1,0 +1,38 @@
+<h2>Formularo de actualización</h2>
+
+{{#if this.data.errors.id }}
+  <p>{{this.data.errors.id}}</p>
+{{else}}
+  <form action="/products/{{this.data.form_state.product.id}}" method="POST">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" value="{{this.data.form_state.product.nombre}}">
+      {{#if this.data.errors.nombre}}
+        <span>{{this.data.errors.nombre}}</span>
+      {{/if}}
+    </div>
+    <div>
+      <label for="precio">Precio: </label>
+      <input type="text" id="precio"  name="precio" value="{{this.data.form_state.product.precio}}">
+      {{#if this.data.errors.precio}}
+        <span>{{this.data.errors.precio}}</span>
+      {{/if}}
+    </div>
+    <div>
+      <label for="stock">Stock: </label>
+      <input type="text" name="stock" id="stock" value="{{this.data.form_state.product.stock}}">
+      {{#if this.data.errors.stock}}
+        <span>{{this.data.errors.stock}}</span>
+      {{/if}}
+    </div>
+    <div>
+      <label for="descripcion">Descripcion: </label>
+      <textarea name="descripcion" id="descripcion">{{this.data.form_state.product.descripcion}}</textarea>
+      {{#if this.data.errors.descripcion}}
+        <span>{{this.data.errors.descripcion}}</span>
+      {{/if}}
+    </div>
+    <input type="submit">
+  </form>
+
+{{/if}}

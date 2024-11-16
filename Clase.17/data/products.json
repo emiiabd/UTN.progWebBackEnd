@@ -40,5 +40,11 @@
     "id": "215bbeaf-6f83-4356-b287-4335807d448f",
     "category": "electrodomestico",
     "stock": 100
+  },
+  {
+    "title": "hola",
+    "price": 10,
+    "categoria": "TECNOLOGIA",
+    "stock": 10
   }
 ]

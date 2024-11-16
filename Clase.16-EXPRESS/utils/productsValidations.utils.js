@@ -93,12 +93,17 @@ const productsValidations = async (product) =>{
         invalidPROPIETIES.push(prop)
       }
     }
+    //podemos urilizar some y devuelve un boolean
     
+    if(productList.some(p => p.title === product.title.toLowerCase())){
+      console.log('sii correcto')
+    }
     for(let prod in productList){
       if(product.title && productList[prod].title === product.title.toLowerCase()){
         invalidPROPIETIES.push(' Ya existe un producto con el mismo nombre' )
       }
     }
+
     
     if(productObj.STATUS === 400 || invalidPROPIETIES.length > 0){
       const response = new responseBuilder()
